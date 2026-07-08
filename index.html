@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curiosidad Aplicada</title>
+  <meta name="description" content="Curiosidad Aplicada: preguntamos, investigamos y comprobamos para tomar mejores decisiones." />
+  <style>
+    :root {
+      --navy: #061a33;
+      --teal: #12a6ad;
+      --teal-dark: #087e86;
+      --orange: #ff990f;
+      --red: #ef2432;
+      --ink: #102033;
+      --muted: #5f6f80;
+      --line: #e7eef3;
+      --soft: #f4fbfb;
+      --white: #ffffff;
+      --shadow: 0 22px 70px rgba(6, 26, 51, 0.10);
+      --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(18,166,173,.16), transparent 32%),
+        radial-gradient(circle at 8% 86%, rgba(255,153,15,.12), transparent 24%),
+        var(--white);
+    }
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; line-height: 1; letter-spacing: -0.04em; color: var(--navy); }
+    .brand img { width: 54px; height: 54px; object-fit: contain; }
+    .brand span { display: block; font-size: clamp(1.25rem, 2vw, 1.55rem); }
+    .brand .accent { color: var(--teal); }
+    nav { display: flex; gap: 14px; align-items: center; color: var(--teal-dark); font-weight: 700; font-size: .92rem; }
+    nav a { border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.72); }
+    .hero { min-height: 650px; display: grid; grid-template-columns: 1.06fr .94fr; gap: 46px; align-items: center; padding: 54px 0 76px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; color: var(--teal-dark); background: rgba(255,255,255,.8); font-weight: 750; margin-bottom: 24px; box-shadow: 0 12px 38px rgba(6, 26, 51, .05); }
+    .eyebrow::before { content: ""; width: 10px; height: 10px; background: var(--orange); border-radius: 999px; box-shadow: 16px 0 0 var(--teal), 32px 0 0 var(--red); margin-right: 31px; }
+    h1 { margin: 0; font-size: clamp(3.2rem, 7vw, 6.7rem); line-height: .91; letter-spacing: -0.075em; color: var(--navy); max-width: 780px; }
+    h1 .teal { color: var(--teal); }
+    h1 .orange { color: var(--orange); }
+    .lead { margin: 30px 0 0; max-width: 610px; font-size: clamp(1.05rem, 1.65vw, 1.25rem); line-height: 1.8; color: var(--muted); }
+    .lead strong { color: var(--navy); }
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 22px; border-radius: 999px; font-weight: 850; letter-spacing: .02em; border: 0; box-shadow: 0 18px 42px rgba(18,166,173,.22); }
+    .btn.primary { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: white; }
+    .btn.secondary { background: white; color: var(--navy); border: 1px solid var(--line); box-shadow: none; }
+    .visual { position: relative; min-height: 520px; display: grid; place-items: center; }
+    .visual-card { position: relative; width: min(500px, 100%); aspect-ratio: 1 / 1; display: grid; place-items: center; border-radius: 44px; background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(244,251,251,.78)), radial-gradient(circle at 72% 24%, rgba(18,166,173,.2), transparent 34%); border: 1px solid var(--line); box-shadow: var(--shadow); overflow: hidden; }
+    .visual-card::before { content: ""; position: absolute; width: 58%; height: 58%; border: 14px solid rgba(18,166,173,.12); border-radius: 50%; right: -12%; top: -10%; }
+    .visual-card::after { content: ""; position: absolute; width: 92px; height: 92px; background: radial-gradient(circle, var(--teal) 2px, transparent 3px); background-size: 16px 16px; right: 36px; bottom: 44px; opacity: .55; }
+    .main-logo { width: 74%; max-width: 355px; position: relative; z-index: 1; filter: drop-shadow(0 20px 28px rgba(6, 26, 51, .10)); }
+    .floating { position: absolute; z-index: 2; background: white; border: 1px solid var(--line); border-radius: 24px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 22px 55px rgba(6, 26, 51, .11); color: var(--navy); font-weight: 800; }
+    .floating img { width: 44px; height: 44px; object-fit: contain; }
+    .floating.one { left: -2%; bottom: 54px; }
+    .floating.two { right: -2%; top: 48px; }
+    .section { padding: 54px 0; border-top: 1px solid var(--line); }
+    .section-title { margin: 0 auto 30px; max-width: 720px; text-align: center; }
+    .section-title h2 { margin: 0; color: var(--navy); font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1; letter-spacing: -0.055em; }
+    .section-title p { margin: 16px auto 0; max-width: 620px; color: var(--muted); line-height: 1.7; font-size: 1.07rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { padding: 30px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255,255,255,.78); box-shadow: 0 16px 44px rgba(6, 26, 51, .06); }
+    .icon { width: 54px; height: 54px; display: grid; place-items: center; border-radius: 18px; margin-bottom: 22px; background: var(--soft); color: var(--teal); font-size: 1.8rem; font-weight: 900; }
+    .card:nth-child(2) .icon { color: var(--orange); }
+    .card:nth-child(3) .icon { color: var(--red); }
+    .card h3 { margin: 0 0 10px; color: var(--navy); font-size: 1.25rem; }
+    .card p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .ecosystem { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+    .brand-panel { border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; background: white; box-shadow: 0 18px 54px rgba(6, 26, 51, .06); display: grid; grid-template-columns: 80px 1fr; gap: 18px; align-items: center; }
+    .brand-panel img { width: 80px; height: 80px; object-fit: contain; }
+    .brand-panel h3 { margin: 0; font-size: 1.55rem; line-height: 1.05; color: var(--navy); letter-spacing: -0.04em; }
+    .brand-panel h3 span { color: var(--teal); }
+    .brand-panel.pdvf h3 span { color: var(--orange); }
+    .brand-panel p { margin: 10px 0 0; color: var(--muted); line-height: 1.6; }
+    .quote { margin-top: 30px; padding: 38px; border-radius: var(--radius); background: linear-gradient(135deg, var(--navy), #092642); color: white; text-align: center; box-shadow: var(--shadow); }
+    .quote p { margin: 0; font-size: clamp(1.3rem, 3vw, 2.05rem); line-height: 1.35; font-weight: 750; letter-spacing: -0.035em; }
+    .quote .teal { color: #3ed4d8; }
+    .quote .orange { color: var(--orange); }
+    footer { padding: 34px 0 42px; color: var(--muted); font-size: .95rem; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); }
+    .footer-links { display: flex; gap: 18px; }
+    @media (max-width: 860px) {
+      .page { width: min(100% - 28px, 680px); }
+      header { align-items: flex-start; }
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding-top: 36px; }
+      .visual { min-height: auto; }
+      .visual-card { border-radius: 30px; }
+      .floating { position: relative; inset: auto !important; margin-top: 12px; width: 100%; }
+      .cards, .ecosystem { grid-template-columns: 1fr; }
+      .brand-panel { grid-template-columns: 68px 1fr; }
+      .brand-panel img { width: 68px; height: 68px; }
+      footer { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 3.1rem; }
+      .hero { padding-bottom: 42px; }
+      .visual-card { aspect-ratio: 1 / .92; }
+      .main-logo { width: 70%; }
+      .card, .brand-panel, .quote { padding: 24px; }
+      .actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a href="#" class="brand" aria-label="Curiosidad Aplicada">
+        <img src="assets/curiosidad-aplicada-logo.png" alt="Logo Curiosidad Aplicada" />
+        <div><span>Curiosidad</span><span class="accent">Aplicada</span></div>
+      </a>
+      <nav aria-label="Redes sociales"><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">TikTok</a><a href="#">Facebook</a></nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Proyecto en construcción</div>
+          <h1><span class="teal">Preguntar</span> es el primer paso. <span class="orange">Comprobar</span> es el siguiente.</h1>
+          <p class="lead">Vivimos rodeados de información, recomendaciones y opiniones. En <strong>Curiosidad Aplicada</strong> creemos que la mejor forma de aprender es investigar, probar y analizar antes de sacar conclusiones.</p>
+          <p class="lead">Muy pronto compartiremos experimentos, comparativas y descubrimientos que transforman la curiosidad en conocimiento práctico.</p>
+          <div class="actions"><a class="btn primary" href="#">Próximamente</a><a class="btn secondary" href="#ecosistema">Ver el ecosistema</a></div>
+        </div>
+        <div class="visual" aria-label="Identidad visual Curiosidad Aplicada">
+          <div class="visual-card"><img class="main-logo" src="assets/curiosidad-aplicada-logo.png" alt="Icono Curiosidad Aplicada" /></div>
+          <div class="floating one"><img src="assets/pero-de-verdad-funciona-logo.png" alt="" /><span>Probamos de verdad</span></div>
+          <div class="floating two"><span>Curiosidad + evidencia</span></div>
+        </div>
+      </section>
+      <section class="section" id="ecosistema">
+        <div class="section-title"><h2>Dos espacios, un mismo propósito.</h2><p>Una marca para explorar ideas y una serie para ponerlas a prueba. Preguntamos, comprobamos y compartimos lo que descubrimos.</p></div>
+        <div class="ecosystem">
+          <article class="brand-panel"><img src="assets/curiosidad-aplicada-logo.png" alt="Logo Curiosidad Aplicada" /><div><h3>Curiosidad <span>Aplicada</span></h3><p>Exploramos ideas, tecnología, herramientas y preguntas cotidianas con mirada práctica.</p></div></article>
+          <article class="brand-panel pdvf"><img src="assets/pero-de-verdad-funciona-logo.png" alt="Logo ¿Pero de verdad funciona?" /><div><h3>¿Pero de verdad <span>funciona?</span></h3><p>Probamos, comparamos y contamos los resultados con honestidad y criterio.</p></div></article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="cards">
+          <article class="card"><div class="icon">🔍</div><h3>Investigamos</h3><p>No damos nada por sentado. Partimos de preguntas reales y buscamos contexto antes de opinar.</p></article>
+          <article class="card"><div class="icon">✓</div><h3>Probamos</h3><p>Usamos productos, herramientas e ideas en situaciones reales para entender qué aportan.</p></article>
+          <article class="card"><div class="icon">💬</div><h3>Compartimos</h3><p>Traducimos lo aprendido en conclusiones claras para ayudarte a tomar mejores decisiones.</p></article>
+        </div>
+        <div class="quote"><p>La <span class="teal">curiosidad</span> nos impulsa. La <span class="orange">evidencia</span> nos guía. El aprendizaje nunca termina.</p></div>
+      </section>
+    </main>
+    <footer><span>© 2026 Curiosidad Aplicada. Todos los derechos reservados.</span><div class="footer-links"><a href="#">Política de privacidad</a><a href="#">Contacto</a></div></footer>
+  </div>
+</body>
+</html>
