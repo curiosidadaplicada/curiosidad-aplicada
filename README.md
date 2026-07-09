@@ -1,3 +1,3 @@
-# Curiosidad Aplicada - Landing Page v0.1
+# Curiosidad Aplicada
 
-Landing page estática lista para subir a Cloudflare Pages.
+Sitio web oficial en construcción.
