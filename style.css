@@ -7,5 +7,5 @@ body{background:#fff;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFon
 @media(max-width:700px){
   .landing{padding:12px;align-items:start}
   .hero{min-height:100vh}
-  .hero-image{width:100%;margin-top:8vh}
+  .hero-image{width:100%;margin-top:0}
 }
