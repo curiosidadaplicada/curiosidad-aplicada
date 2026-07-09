@@ -1,1 +1,0 @@
-Assets del proyecto.
