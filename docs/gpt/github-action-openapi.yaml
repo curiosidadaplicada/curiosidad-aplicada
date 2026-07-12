@@ -1,0 +1,14 @@
+openapi: 3.1.0
+
+info:
+  title: GitHub Repository Contents API
+  version: 1.0.0
+  description: >
+    Esquema reducido para obtener archivos y crear o
+    actualizar archivos mediante la API REST pública de GitHub.
+
+servers:
+  - url: https://api.github.com
+
+security:
+  - bearerAuth: []
